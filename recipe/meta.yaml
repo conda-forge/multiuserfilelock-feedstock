@@ -9,8 +9,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/multiuserfilelock-{{ version }}.tar.gz
   sha256: d9e9bf0363c408d2e4cb5cecdc910592517a41c37cf3506ea413843c70d2b1f9
-  patches:
-    - patch_windows_test.patch
 
 build:
   number: 0
