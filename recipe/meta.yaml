@@ -1,5 +1,5 @@
 {% set name = "multiuserfilelock" %}
-{% set version = "0.0.3" %}
+{% set version = "0.0.5" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/multiuserfilelock-{{ version }}.tar.gz
-  sha256: 26f9fdf9e04ab569a29dbb21a7b1b84b7c3b36c21bcbfcdb6af0448c07148043
+  sha256: d9e9bf0363c408d2e4cb5cecdc910592517a41c37cf3506ea413843c70d2b1f9
   patches:
     - patch_windows_test.patch
 
