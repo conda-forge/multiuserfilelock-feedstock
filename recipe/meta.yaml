@@ -21,7 +21,7 @@ requirements:
     - python >=3.7
   run:
     - python >=3.7
-    - filelock !=3.11.0,!-3.13.0
+    - filelock !=3.11.0,!=3.13.0
 
 test:
   imports:
