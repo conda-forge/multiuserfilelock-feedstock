@@ -19,6 +19,7 @@ requirements:
   host:
     - pip
     - python {{ python_min }}
+    - setuptools
   run:
     - python >={{ python_min }}
     - filelock !=3.11.0,!=3.13.0
