@@ -7,20 +7,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/multiuserfilelock-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/multiuserfilelock-{{ version }}.tar.gz
   sha256: 24629e7210a74152bbec8fa75f46cd47632fe24b510d64eb876d70ea0e6b2de9
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - filelock !=3.11.0,!=3.13.0
 
 test:
@@ -32,6 +32,7 @@ test:
   requires:
     - pip
     - pytest
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ramonaoptics/python-multiuserfilelock
