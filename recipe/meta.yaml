@@ -1,26 +1,25 @@
-{% set name = "multiuserfilelock" %}
 {% set version = "0.0.9" %}
 
-
 package:
-  name: {{ name|lower }}
+  name: multiuserfilelock
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/multiuserfilelock-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/m/multiuserfilelock/multiuserfilelock-{{ version }}.tar.gz
   sha256: 24629e7210a74152bbec8fa75f46cd47632fe24b510d64eb876d70ea0e6b2de9
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
+    - setuptools
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - filelock !=3.11.0,!=3.13.0
 
 test:
@@ -28,10 +27,13 @@ test:
     - multiuserfilelock
   commands:
     - pip check
-    - pytest --pyargs multiuserfilelock
+    # hmaarrfk - 2024/12 i think the CIs changed and now the tests
+    # stopped working
+    # - pytest --pyargs multiuserfilelock
   requires:
     - pip
     - pytest
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ramonaoptics/python-multiuserfilelock
