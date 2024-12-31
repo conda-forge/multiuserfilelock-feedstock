@@ -27,9 +27,7 @@ test:
     - multiuserfilelock
   commands:
     - pip check
-    # hmaarrfk - 2024/12 i think the CIs changed and now the tests
-    # stopped working
-    # - pytest --pyargs multiuserfilelock
+    - pytest --pyargs multiuserfilelock
   requires:
     - pip
     - pytest
