@@ -1,4 +1,4 @@
-{% set version = "0.0.9" %}
+{% set version = "0.0.10" %}
 
 package:
   name: multiuserfilelock
@@ -6,17 +6,17 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/multiuserfilelock/multiuserfilelock-{{ version }}.tar.gz
-  sha256: 24629e7210a74152bbec8fa75f46cd47632fe24b510d64eb876d70ea0e6b2de9
+  sha256: 89699084c8ff927de4ae5fed3763a83ddceaa81efadf465f255a7f78d5fc47fe
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - pip
     - python {{ python_min }}
+    - pip
     - setuptools
   run:
     - python >={{ python_min }}
@@ -27,9 +27,7 @@ test:
     - multiuserfilelock
   commands:
     - pip check
-    # hmaarrfk - 2024/12 i think the CIs changed and now the tests
-    # stopped working
-    # - pytest --pyargs multiuserfilelock
+    - pytest --pyargs multiuserfilelock
   requires:
     - pip
     - pytest
